@@ -9,6 +9,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 def setup_variable(dict, search_value):
     """
     Check if a varaible is equal to the values of a dictionary.
+    It can handle the diveristy of users' inputs.
 
     Return:
         (str) key - the corresponding key of that value
