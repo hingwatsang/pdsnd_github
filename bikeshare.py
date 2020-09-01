@@ -238,8 +238,7 @@ def user_stats(df, city):
 
 def view_data(df):
     """
-    Display the raw data on request.
-    Print out 5 rows each time.
+    Display the raw data 5 rows at a time  on request.
     """
     count = 0
     while True:
