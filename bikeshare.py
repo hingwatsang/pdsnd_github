@@ -6,7 +6,7 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
-def setup_variable(dict, search_value):
+def setup_var(dict, search_value):
     """
     Check if a varaible is equal to the values of a dictionary.
 
@@ -38,7 +38,7 @@ def get_filters():
         city_dict = {'chicago' : ('1', 'chicago'),
                     'new york city' : ('2', 'new york'),
                     'washington' : ('3', 'washington')}
-        city = setup_variable(city_dict, city)
+        city = setup_var(city_dict, city)
 
         #For invalid input, ask the user to input again
         if city in city_dict.keys():
@@ -60,7 +60,7 @@ def get_filters():
                         'april' : ('4', 'apr', 'april'),
                         'may' : ('5', 'may'),
                         'june' : ('6', 'jun', 'june')}
-        month = setup_variable(month_dict, month)
+        month = setup_var(month_dict, month)
 
         #For invalid input, ask the user to input again
         if month in month_dict.keys():
@@ -84,7 +84,7 @@ def get_filters():
                     'friday' : ('5', 'fri', 'fr', 'friday'),
                     'saturday' : ('6', 'sat', 'sa', 'saturday'),
                     'sunday' : ('7', 'sun', 'su', 'sunday')}
-        day = setup_variable(day_dict, day)
+        day = setup_var(day_dict, day)
 
         #For invalid input, ask the user to input again
         if day in day_dict.keys():
