@@ -95,7 +95,7 @@ def get_filters():
     print('-'*40)
     #print out the user's choixe.
     if month == 'all' and day == 'all':
-        print('The statistics of {} is listed below.\n'.format(city.title()) )
+        print('The statistics of %s is listed below.\n' % city.title() )
     elif month == 'all':
         print('The statistics of {} on every {} is listed below.\n'.format(city.title(), day.title()))
     elif day == 'all':
@@ -199,10 +199,10 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # TO DO: display total travel time
-    print('Total travel time: {} hours'.format(round(df['Trip Duration'].sum() / 3600, 1)))
+    print('Total travel time: %s hours' % (round(df['Trip Duration'].sum() / 3600, 1)))
 
     # TO DO: display mean travel time
-    print('Mean travel time: {} seconds'.format(round(df['Trip Duration'].mean(), 1)))
+    print('Mean travel time: %s seconds' % (round(df['Trip Duration'].mean(), 1)))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
