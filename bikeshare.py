@@ -1,12 +1,11 @@
 import time
 import pandas as pd
-import numpy as np
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
-def setup_variable(dict, search_value):
+def setup_var(dict, search_value):
     """
     Check if a varaible is equal to the values of a dictionary.
     It can handle the diveristy of users' inputs.
@@ -39,7 +38,7 @@ def get_filters():
         city_dict = {'chicago' : ('1', 'chicago'),
                     'new york city' : ('2', 'new york'),
                     'washington' : ('3', 'washington')}
-        city = setup_variable(city_dict, city)
+        city = setup_var(city_dict, city)
 
         #For invalid input, ask the user to input again
         if city in city_dict.keys():
@@ -61,7 +60,7 @@ def get_filters():
                         'april' : ('4', 'apr', 'april'),
                         'may' : ('5', 'may'),
                         'june' : ('6', 'jun', 'june')}
-        month = setup_variable(month_dict, month)
+        month = setup_var(month_dict, month)
 
         #For invalid input, ask the user to input again
         if month in month_dict.keys():
@@ -85,7 +84,7 @@ def get_filters():
                     'friday' : ('5', 'fri', 'fr', 'friday'),
                     'saturday' : ('6', 'sat', 'sa', 'saturday'),
                     'sunday' : ('7', 'sun', 'su', 'sunday')}
-        day = setup_variable(day_dict, day)
+        day = setup_var(day_dict, day)
 
         #For invalid input, ask the user to input again
         if day in day_dict.keys():
@@ -97,7 +96,7 @@ def get_filters():
     print('-'*40)
     #print out the user's choixe.
     if month == 'all' and day == 'all':
-        print('The statistics of {} is listed below.\n'.format(city.title()) )
+        print('The statistics of %s is listed below.\n' % city.title() )
     elif month == 'all':
         print('The statistics of {} on every {} is listed below.\n'.format(city.title(), day.title()))
     elif day == 'all':
@@ -201,10 +200,10 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # TO DO: display total travel time
-    print('Total travel time: {} hours'.format(round(df['Trip Duration'].sum() / 3600, 1)))
+    print('Total travel time: %s hours' % (round(df['Trip Duration'].sum() / 3600, 1)))
 
     # TO DO: display mean travel time
-    print('Mean travel time: {} seconds'.format(round(df['Trip Duration'].mean(), 1)))
+    print('Mean travel time: %s seconds' % (round(df['Trip Duration'].mean(), 1)))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
