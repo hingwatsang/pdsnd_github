@@ -1,5 +1,6 @@
 import time
 import pandas as pd
+import matplotlib as mpl
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -96,10 +97,10 @@ def get_filters():
     while True:
         graph = input('\nWould you like to see the graphical output?\nPlease type Yes or No: ')
         graph = graph.lower()
-        if graph == 'yes' or display == 'y':
+        if graph == 'yes' or graph == 'y':
             graph = True
             break
-        elif  graph == 'no' or display == 'n':
+        elif  graph == 'no' or graph == 'n':
             graph = False
             break
         else:
