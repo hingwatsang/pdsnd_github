@@ -92,6 +92,18 @@ def get_filters():
         else:
             print('\nSorry, invalid input! Please try again.')
 
+    #TO DO: get user input for graph (True or False)
+    while True:
+        graph = input('\nWould you like to see the graphical output?\nPlease type Yes or No: ')
+        graph = graph.lower()
+        if graph == 'yes' or display == 'y':
+            graph = True
+            break
+        elif  graph == 'no' or display == 'n':
+            graph = False
+            break
+        else:
+            print('\nSorry, invalid input! Please try again.')
 
     print('-'*40)
     #print out the user's choixe.
