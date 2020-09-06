@@ -1,6 +1,7 @@
 import time
 import pandas as pd
-import matplotlib as mpl
+import numpy as np
+import matplotlib.pyplot as plt
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -116,7 +117,7 @@ def get_filters():
         print('The statisitcs of {} in {} is listed below.\n'.format(city.title(), month.title()))
     else:
         print('The statistics of {} on evey {} in {} is listed below.\n'.format(city.title(), day.title(), month.title()))
-    return city, month, day
+    return city, month, day, graph
 
 
 def load_data(city, month, day):
@@ -138,7 +139,7 @@ def load_data(city, month, day):
 
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
+    df['day_of_week'] = df['Start Time'].dt.day_name
 
     # filter by month if applicable
     if month != 'all':
@@ -158,7 +159,7 @@ def load_data(city, month, day):
     return df
 
 
-def time_stats(df, month, day):
+def time_stats(df, month, day, graph):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
@@ -170,10 +171,12 @@ def time_stats(df, month, day):
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         print('Most Frequent Month: ', months[popular_month-1].title())
 
+
     # TO DO: display the most common day of week
     if day == 'all':
         popular_day = df['day_of_week'].mode()[0]
-        print('Most Frequent Day of Week: ', popular_day.title())
+
+        print('Most Frequent Day of Week: ', str(popular_day).title())
 
     # TO DO: display the most common start hour
     df['hour'] =df['Start Time'].dt.hour
@@ -268,10 +271,10 @@ def view_data(df):
 
 def main():
     while True:
-        city, month, day = get_filters()
+        city, month, day, graph = get_filters()
         df = load_data(city, month, day)
 
-        time_stats(df, month, day)
+        time_stats(df, month, day, graph)
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df, city)
